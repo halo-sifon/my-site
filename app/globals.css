@@ -489,10 +489,30 @@
 
 /* ----------------------------------------
    Base Styles
-   ---------------------------------------- */
+   ----------------------------------------
+   Light mode uses canvas (#fff) + ink (#1d1d1f).
+   Dark mode swaps to the Apple dark-tile surface
+   (surface-tile-1 #272729) + body-on-dark (#fff),
+   matching the tokens already defined in DESIGN.md.
+   No new colors are introduced. */
 :root {
   --background: var(--color-canvas);
   --foreground: var(--color-ink);
+  --foreground-muted: var(--color-ink-muted-48);
+  --link: var(--color-primary);
+  --surface-subtle: var(--color-canvas-parchment);
+  --hairline: var(--color-hairline);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-surface-tile-1);
+    --foreground: var(--color-body-on-dark);
+    --foreground-muted: var(--color-body-muted);
+    --link: var(--color-primary-on-dark);
+    --surface-subtle: var(--color-surface-tile-2);
+    --hairline: var(--color-surface-tile-3);
+  }
 }
 
 body {

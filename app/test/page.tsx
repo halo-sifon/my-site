@@ -60,55 +60,46 @@ export default async function TestPage({ searchParams }: PageProps) {
   });
 
   return (
-    <div className="flex flex-col min-h-screen p-8">
+    <div className="flex flex-col min-h-screen p-xl">
       <div className="max-w-4xl mx-auto w-full">
-        <h1 className="text-3xl font-bold mb-6">服务器组件测试</h1>
+        <h1 className="text-display-md font-semibold mb-lg">服务器组件测试</h1>
 
-        <div className="mb-4 p-4 bg-gray-100 dark:bg-gray-800 rounded">
-          <p className="text-sm">
+        <div className="mb-md p-md rounded bg-canvas-parchment dark:bg-surface-tile-2">
+          <p className="text-caption">
             <strong>当前分类:</strong> {category || '全部'}
           </p>
-          <p className="text-sm mt-2">
+          <p className="text-caption mt-sm">
             <strong>服务器渲染时间:</strong> {renderTime}
           </p>
         </div>
 
-        <div className="mb-4 flex gap-2">
-          <a
-            href="/test"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
+        <div className="mb-md flex gap-sm">
+          <a href="/test" className="btn-primary">
             全部
           </a>
-          <a
-            href="/test?category=tech"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
+          <a href="/test?category=tech" className="btn-primary">
             技术
           </a>
-          <a
-            href="/test?category=life"
-            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-          >
+          <a href="/test?category=life" className="btn-primary">
             生活
           </a>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-md">
           {filteredContent.length === 0 ? (
-            <p className="text-gray-500">暂无内容</p>
+            <p className="text-ink-muted-48 dark:text-body-muted">暂无内容</p>
           ) : (
             filteredContent.map(item => (
               <div
                 key={item.id}
-                className="p-4 border rounded hover:shadow-md transition-shadow"
+                className="p-md rounded border border-hairline"
               >
-                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">
+                <h2 className="text-tagline font-semibold mb-sm">{item.title}</h2>
+                <p className="mb-sm text-ink-muted-48 dark:text-body-muted">
                   {item.description}
                 </p>
-                <div className="text-sm text-gray-500">
-                  <span className="mr-4">分类: {item.category}</span>
+                <div className="text-caption text-ink-muted-48 dark:text-body-muted">
+                  <span className="mr-md">分类: {item.category}</span>
                   <span>创建时间: {item.createdAt}</span>
                 </div>
               </div>
