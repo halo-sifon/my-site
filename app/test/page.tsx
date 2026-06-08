@@ -1,110 +1,41 @@
-// app/test/page.tsx
-type ContentItem = {
-  id: string;
-  title: string;
-  description: string;
-  category: 'tech' | 'life';
-  createdAt: string;
-};
+import Link from "next/link";
 
-// 模拟数据
-const mockData: ContentItem[] = [
+const testPages = [
   {
-    id: '1',
-    title: 'Next.js 16 新特性',
-    description: '了解 Next.js 16 的最新功能和改进',
-    category: 'tech',
-    createdAt: '2026-06-01',
+    title: "服务器组件",
+    description: "测试 Next.js 服务端组件渲染、搜索参数过滤等功能",
+    href: "/test/server-components",
+    icon: "🖥️",
   },
   {
-    id: '2',
-    title: 'React 19 性能优化',
-    description: '深入理解 React 19 的性能优化策略',
-    category: 'tech',
-    createdAt: '2026-06-02',
-  },
-  {
-    id: '3',
-    title: '周末徒步记',
-    description: '记录一次愉快的周末徒步经历',
-    category: 'life',
-    createdAt: '2026-06-03',
-  },
-  {
-    id: '4',
-    title: '咖啡品鉴指南',
-    description: '从入门到精通的咖啡品鉴技巧',
-    category: 'life',
-    createdAt: '2026-06-04',
+    title: "D1 数据库",
+    description: "测试 Cloudflare D1 数据库连接、建表、读写操作",
+    href: "/test/d1",
+    icon: "🗄️",
   },
 ];
 
-// 页面 props 类型
-type PageProps = {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
-};
-
-export default async function TestPage({ searchParams }: PageProps) {
-  // 获取分类参数
-  const params = await searchParams;
-  const category = params.category as string | undefined;
-
-  // 过滤内容
-  const filteredContent = category
-    ? mockData.filter(item => item.category === category)
-    : mockData;
-
-  // 服务器渲染时间
-  const renderTime = new Date().toLocaleString('zh-CN', {
-    timeZone: 'Asia/Shanghai',
-  });
-
+export default function TestHubPage() {
   return (
-    <div className="flex flex-col min-h-screen p-xl">
+    <div className="flex flex-col min-h-screen p-8">
       <div className="max-w-4xl mx-auto w-full">
-        <h1 className="text-display-md font-semibold mb-lg">服务器组件测试</h1>
+        <h1 className="text-display-md mb-6">测试中心</h1>
+        <p className="text-body-lg text-body mb-8">
+          各功能模块的测试页面，验证服务端渲染、数据库连接等核心能力。
+        </p>
 
-        <div className="mb-md p-md rounded bg-canvas-parchment dark:bg-surface-tile-2">
-          <p className="text-caption">
-            <strong>当前分类:</strong> {category || '全部'}
-          </p>
-          <p className="text-caption mt-sm">
-            <strong>服务器渲染时间:</strong> {renderTime}
-          </p>
-        </div>
-
-        <div className="mb-md flex gap-sm">
-          <a href="/test" className="btn-primary">
-            全部
-          </a>
-          <a href="/test?category=tech" className="btn-primary">
-            技术
-          </a>
-          <a href="/test?category=life" className="btn-primary">
-            生活
-          </a>
-        </div>
-
-        <div className="space-y-md">
-          {filteredContent.length === 0 ? (
-            <p className="text-ink-muted-48 dark:text-body-muted">暂无内容</p>
-          ) : (
-            filteredContent.map(item => (
-              <div
-                key={item.id}
-                className="p-md rounded border border-hairline"
-              >
-                <h2 className="text-tagline font-semibold mb-sm">{item.title}</h2>
-                <p className="mb-sm text-ink-muted-48 dark:text-body-muted">
-                  {item.description}
-                </p>
-                <div className="text-caption text-ink-muted-48 dark:text-body-muted">
-                  <span className="mr-md">分类: {item.category}</span>
-                  <span>创建时间: {item.createdAt}</span>
-                </div>
-              </div>
-            ))
-          )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {testPages.map((page) => (
+            <Link
+              key={page.href}
+              href={page.href}
+              className="card-marketing block hover:border-primary transition-colors"
+            >
+              <div className="text-3xl mb-3">{page.icon}</div>
+              <h2 className="text-display-sm mb-2">{page.title}</h2>
+              <p className="text-body-sm text-body">{page.description}</p>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
