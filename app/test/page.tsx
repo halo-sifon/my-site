@@ -9,7 +9,7 @@ const testPages = [
   },
   {
     title: "D1 数据库",
-    description: "测试 Cloudflare D1 数据库连接、建表、读写操作",
+    description: "测试 notes 模型的完整 CRUD 和统一 API 响应",
     href: "/test/d1",
     icon: "🗄️",
   },
@@ -21,7 +21,7 @@ export default function TestHubPage() {
       <div className="max-w-4xl mx-auto w-full">
         <h1 className="text-display-md mb-6">测试中心</h1>
         <p className="text-body-lg text-body mb-8">
-          各功能模块的测试页面，验证服务端渲染、数据库连接等核心能力。
+          各功能模块的测试页面，验证服务端渲染和数据库读写等核心能力。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

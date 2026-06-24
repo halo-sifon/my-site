@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Build artifacts:
     ".open-next/**",
+    "cloudflare-env.d.ts",
+    // Skill templates are examples, not project source:
+    ".claude/skills/**",
   ]),
 ]);
 

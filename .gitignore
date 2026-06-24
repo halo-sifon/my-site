@@ -50,3 +50,4 @@ docs/*
 !.dev.vars.example
 
 !.env.example
+.playwright-cli
