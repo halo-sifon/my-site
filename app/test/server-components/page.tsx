@@ -11,7 +11,7 @@ export default async function ServerComponentsPage({
   const category = params.category as string | undefined;
 
   return (
-    <main className="min-h-screen bg-canvas-soft px-6 py-12">
+    <main className="min-h-screen px-6 py-12">
       <div className="mx-auto w-full max-w-4xl">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
