@@ -13,6 +13,12 @@ const testPages = [
     href: "/test/d1",
     icon: "🗄️",
   },
+  {
+    title: "Workers AI",
+    description: "测试文本回答、图片生成和 SSE 流式对话",
+    href: "/test/workers-ai",
+    icon: "✨",
+  },
 ];
 
 export default function TestHubPage() {
