@@ -1,10 +1,9 @@
-import { getDatabase } from "@/lib/cloudflare";
-import { handleCreateNote, handleListNotes } from "@/app/api/notes/handlers";
+import { apiNotFound } from "@/app/api/_shared/not-found";
 
-export async function GET(request: Request) {
-  return handleListNotes(await getDatabase(), request);
+export async function GET() {
+  return apiNotFound();
 }
 
-export async function POST(request: Request) {
-  return handleCreateNote(await getDatabase(), request);
+export async function POST() {
+  return apiNotFound();
 }

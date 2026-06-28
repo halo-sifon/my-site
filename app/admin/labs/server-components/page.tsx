@@ -4,7 +4,7 @@ type PageProps = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export default async function ServerComponentsPage({
+export default async function ServerComponentsLabPage({
   searchParams,
 }: PageProps) {
   const params = await searchParams;
@@ -21,8 +21,8 @@ export default async function ServerComponentsPage({
               验证服务端渲染、分类过滤和异步数据获取。
             </p>
           </div>
-          <a className="btn-secondary py-2" href="/test">
-            返回测试中心
+          <a className="btn-secondary py-2" href="/admin">
+            返回管理后台
           </a>
         </div>
 

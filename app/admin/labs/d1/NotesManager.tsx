@@ -11,6 +11,7 @@ type NoteDraft = {
 };
 
 const emptyDraft: NoteDraft = { title: "", content: "" };
+const notesApiPath = "/api/admin/notes";
 
 async function readApiResponse<T>(response: Response): Promise<T> {
   const body = (await response.json()) as ApiResponseBody<T>;
@@ -32,7 +33,7 @@ export function NotesManager() {
     setLoading(true);
     setError("");
     try {
-      const response = await fetch("/api/notes?page=1&pageSize=100");
+      const response = await fetch(`${notesApiPath}?page=1&pageSize=100`);
       const data = await readApiResponse<PaginatedNotes>(response);
       setNotes(data.items);
     } catch (requestError) {
@@ -47,7 +48,7 @@ export function NotesManager() {
   useEffect(() => {
     let cancelled = false;
 
-    void fetch("/api/notes?page=1&pageSize=100")
+    void fetch(`${notesApiPath}?page=1&pageSize=100`)
       .then((response) => readApiResponse<PaginatedNotes>(response))
       .then((data) => {
         if (!cancelled) {
@@ -90,7 +91,7 @@ export function NotesManager() {
 
     try {
       const response = await fetch(
-        editingId === null ? "/api/notes" : `/api/notes/${editingId}`,
+        editingId === null ? notesApiPath : `${notesApiPath}/${editingId}`,
         {
           method: editingId === null ? "POST" : "PATCH",
           headers: { "content-type": "application/json" },
@@ -116,7 +117,7 @@ export function NotesManager() {
 
     setError("");
     try {
-      const response = await fetch(`/api/notes/${note.id}`, {
+      const response = await fetch(`${notesApiPath}/${note.id}`, {
         method: "DELETE",
       });
       await readApiResponse<{ id: number }>(response);

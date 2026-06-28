@@ -15,6 +15,8 @@ type DisplayMessage = ChatMessage & {
   id: string;
 };
 
+const aiApiPath = "/api/admin/ai";
+
 async function readApiData<T>(response: Response): Promise<T> {
   const body = (await response.json()) as ApiResponseBody<T>;
   if (!response.ok || body.code !== 0 || body.data === null) {
@@ -76,7 +78,7 @@ export function WorkersAiTester({ textModel, imageModel }: Props) {
     setTextElapsed(null);
 
     try {
-      const response = await fetch("/api/ai/text", {
+      const response = await fetch(`${aiApiPath}/text`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ prompt: textPrompt }),
@@ -99,7 +101,7 @@ export function WorkersAiTester({ textModel, imageModel }: Props) {
     setImageElapsed(null);
 
     try {
-      const response = await fetch("/api/ai/image", {
+      const response = await fetch(`${aiApiPath}/image`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ prompt: imagePrompt }),
@@ -151,7 +153,7 @@ export function WorkersAiTester({ textModel, imageModel }: Props) {
     setChatLoading(true);
 
     try {
-      const response = await fetch("/api/ai/chat", {
+      const response = await fetch(`${aiApiPath}/chat`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ messages: requestMessages }),

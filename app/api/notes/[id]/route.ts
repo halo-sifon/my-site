@@ -1,22 +1,13 @@
-import { getDatabase } from "@/lib/cloudflare";
-import {
-  handleDeleteNote,
-  handleGetNote,
-  handleUpdateNote,
-} from "@/app/api/notes/handlers";
-import { RouteContext } from "@/app/api/_shared/type";
+import { apiNotFound } from "@/app/api/_shared/not-found";
 
-export async function GET(_request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  return handleGetNote(await getDatabase(), id);
+export async function GET() {
+  return apiNotFound();
 }
 
-export async function PATCH(request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  return handleUpdateNote(await getDatabase(), id, request);
+export async function PATCH() {
+  return apiNotFound();
 }
 
-export async function DELETE(_request: Request, context: RouteContext) {
-  const { id } = await context.params;
-  return handleDeleteNote(await getDatabase(), id);
+export async function DELETE() {
+  return apiNotFound();
 }

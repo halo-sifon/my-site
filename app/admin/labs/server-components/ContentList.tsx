@@ -62,13 +62,19 @@ export async function ContentList({ category }: ContentListProps) {
       </div>
 
       <div className="mb-4 flex gap-3">
-        <a href="/test/server-components" className="btn-primary">
+        <a href="/admin/labs/server-components" className="btn-primary">
           全部
         </a>
-        <a href="/test/server-components?category=tech" className="btn-primary">
+        <a
+          href="/admin/labs/server-components?category=tech"
+          className="btn-primary"
+        >
           技术
         </a>
-        <a href="/test/server-components?category=life" className="btn-primary">
+        <a
+          href="/admin/labs/server-components?category=life"
+          className="btn-primary"
+        >
           生活
         </a>
       </div>

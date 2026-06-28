@@ -3,7 +3,7 @@ import Link from "next/link";
 import { IMAGE_MODEL, TEXT_MODEL } from "@/app/api/ai/models";
 import { WorkersAiTester } from "./WorkersAiTester";
 
-export default function WorkersAiTestPage() {
+export default function WorkersAiLabPage() {
   return (
     <main className="min-h-screen px-6 py-12">
       <div className="mx-auto max-w-4xl">
@@ -17,9 +17,9 @@ export default function WorkersAiTestPage() {
           </div>
           <Link
             className="btn-secondary border border-hairline py-2"
-            href="/test"
+            href="/admin"
           >
-            返回测试中心
+            返回管理后台
           </Link>
         </div>
 

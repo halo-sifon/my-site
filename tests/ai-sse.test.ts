@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { consumeSseEvents } from "@/app/test/workers-ai/sse";
+import { consumeSseEvents } from "@/app/admin/labs/workers-ai/sse";
 
 describe("consumeSseEvents", () => {
   it("extracts text from complete SSE events and keeps partial data", () => {

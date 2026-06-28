@@ -1,6 +1,5 @@
-import { handleImageGeneration } from "@/app/api/ai/handlers";
-import { getWorkersAi } from "@/lib/cloudflare";
+import { apiNotFound } from "@/app/api/_shared/not-found";
 
-export async function POST(request: Request) {
-  return handleImageGeneration(await getWorkersAi(), request);
+export async function POST() {
+  return apiNotFound();
 }

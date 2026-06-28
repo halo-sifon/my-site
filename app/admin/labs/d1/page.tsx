@@ -1,8 +1,8 @@
 import { NotesManager } from "./NotesManager";
 
-export default function D1TestPage() {
+export default function D1LabPage() {
   return (
-    <main className="min-h-screen  px-6 py-12">
+    <main className="min-h-screen px-6 py-12">
       <div className="mx-auto max-w-4xl">
         <div className="mb-8 flex items-end justify-between gap-4">
           <div>
@@ -12,8 +12,8 @@ export default function D1TestPage() {
               验证 notes 模型的新增、查询、更新和硬删除接口。
             </p>
           </div>
-          <a className="btn-secondary py-2" href="/test">
-            返回测试中心
+          <a className="btn-secondary py-2" href="/admin">
+            返回管理后台
           </a>
         </div>
 

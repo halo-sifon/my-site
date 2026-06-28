@@ -1,0 +1,6 @@
+NEXTJS_ENV="development"
+BETTER_AUTH_SECRET="replace-with-openssl-rand-base64-32"
+BETTER_AUTH_URL="http://localhost:3000"
+GITHUB_CLIENT_ID="replace-with-github-oauth-client-id"
+GITHUB_CLIENT_SECRET="replace-with-github-oauth-client-secret"
+ADMIN_GITHUB_ID="replace-with-your-github-numeric-id"

@@ -3,6 +3,10 @@ export const RESPONSE_CODE = {
   SUCCESS: 0,
   /** 错误的请求 */
   BAD_REQUEST: 400,
+  /** 未认证 */
+  UNAUTHORIZED: 401,
+  /** 无权限 */
+  FORBIDDEN: 403,
   /** 未找到 */
   NOT_FOUND: 404,
   /** 服务端错误 */
@@ -20,6 +24,11 @@ type FailureCode = (typeof RESPONSE_CODE)[Exclude<
   "SUCCESS"
 >];
 
+/**
+ * API 响应基类。
+ *
+ * 所有业务接口统一输出 `{ code, data, message }`，避免各路由各自拼响应结构。
+ */
 export abstract class ApiResponse<T> {
   abstract readonly code: number;
   abstract readonly data: T | null;
@@ -34,6 +43,11 @@ export abstract class ApiResponse<T> {
   }
 }
 
+/**
+ * 成功响应。
+ *
+ * `init` 透传给 `Response.json`，用于调用方指定 201 等 HTTP 状态。
+ */
 export class ResponseSuccess<T> extends ApiResponse<T> {
   readonly code = RESPONSE_CODE.SUCCESS;
   readonly message: string;
@@ -51,6 +65,11 @@ export class ResponseSuccess<T> extends ApiResponse<T> {
   }
 }
 
+/**
+ * 失败响应。
+ *
+ * 业务失败和校验失败都通过这里返回，HTTP status 与业务 code 保持一致。
+ */
 export class ResponseFail extends ApiResponse<null> {
   readonly data = null;
 
