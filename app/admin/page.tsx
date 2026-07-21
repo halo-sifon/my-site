@@ -8,6 +8,12 @@ const adminLabs = [
     icon: "📝",
   },
   {
+    title: "基金再平衡",
+    description: "手动输入当前持仓，计算创业板与债券的调仓金额",
+    href: "/admin/funds",
+    icon: "⚖️",
+  },
+  {
     title: "服务器组件",
     description: "测试 Next.js 服务端组件渲染、搜索参数过滤等功能",
     href: "/admin/labs/server-components",
