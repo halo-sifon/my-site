@@ -24,6 +24,9 @@
       "custom_domain": true
     }
   ],
+  "triggers": {
+    "crons": []
+  },
   "vars": {
     "NEXTJS_ENV": "production",
     "BETTER_AUTH_URL": "https://ai.sifon.top",
