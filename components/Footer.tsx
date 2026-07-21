@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const footerLinks = [
   { name: "首页", href: "/" },
-  { name: "测试", href: "/test" },
+  { name: "文章", href: "/articles" },
 ];
 
 export default function Footer() {

@@ -2,6 +2,12 @@ import Link from "next/link";
 
 const adminLabs = [
   {
+    title: "文章管理",
+    description: "管理文章草稿、发布状态和公开文章列表",
+    href: "/admin/articles",
+    icon: "📝",
+  },
+  {
     title: "服务器组件",
     description: "测试 Next.js 服务端组件渲染、搜索参数过滤等功能",
     href: "/admin/labs/server-components",

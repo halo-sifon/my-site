@@ -49,7 +49,7 @@ export async function getDatabase(): Promise<D1Database> {
   return (await getCloudflareEnv()).DB;
 }
 
-/** 获取 Workers AI binding。调用方必须先完成鉴权，避免匿名消耗计费资源。 */
+/** 获取 Workers AI binding。调用方必须先完成鉴权或滥用保护，避免匿名消耗计费资源。 */
 export async function getWorkersAi(): Promise<Ai> {
   return (await getCloudflareEnv()).AI;
 }

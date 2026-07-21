@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 
 const navItems = [
   { name: "首页", href: "/" },
-  { name: "测试", href: "/test" },
+  { name: "文章", href: "/articles" },
 ];
 
 export default function Header() {
